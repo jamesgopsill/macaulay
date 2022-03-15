@@ -1,8 +1,8 @@
 {
-  "name": "macaulay-notation",
+  "name": "@jamesgopsill/macaulay-notation",
   "version": "0.1.0",
   "description": "Calculate the shear force and bending moment diagrams based on macaulay notation.",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": "James Gopsill",
   "license": "MIT",
   "private": false,
@@ -10,10 +10,11 @@
     "test": "jest",
     "build": "tsc",
     "docs": "typedoc",
-    "format": "prettier --write src/**"
+    "format": "prettier --write src/**",
+    "pre-add": "yarn format && yarn docs && node utils/clean-dist.js && yarn tsc && node utils/crlf-to-lf.js"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "devDependencies": {
     "@types/jest": "^26.0.23",

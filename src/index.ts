@@ -1,4 +1,6 @@
-import { MacaulayNotation, MacaulayReturn } from "./interfaces"
+import { MacaulayNotation, MacaulayResult } from "./interfaces"
+
+export * from "./interfaces"
 
 /**
  * Macaulay is a const function that takes some MacaulayNotation format.
@@ -14,12 +16,12 @@ export const macaulay = async (
 	notation: MacaulayNotation[],
 	xmin: number,
 	xmax: number,
-	datapoints: number
-): Promise<MacaulayReturn> => {
+	nPoints: number
+): Promise<MacaulayResult> => {
 	// Create the linear x space
 	const linspace = []
-	const step = (xmax - xmin) / datapoints
-	for (let i = 0; i <= datapoints; i++) {
+	const step = (xmax - xmin) / nPoints
+	for (let i = 0; i <= nPoints; i++) {
 		linspace.push(xmin + step * i)
 	}
 
@@ -39,7 +41,7 @@ export const macaulay = async (
 		bending.push(b)
 	}
 
-	const out: MacaulayReturn = {
+	const out: MacaulayResult = {
 		x: linspace,
 		shear: shear,
 		bending: bending,

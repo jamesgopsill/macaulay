@@ -1,5 +1,5 @@
 /**
- * INotation is the format expected for each element of a macaulay equation.
+ * MacaulayNotation is the format expected for each element of a macaulay equation.
  */
 export interface MacaulayNotation {
 	/** Force being applied. Can be a function of x.*/
@@ -11,9 +11,9 @@ export interface MacaulayNotation {
 }
 
 /**
- * IReturn is the format for the return object from our Macaulay function.
+ * MacaulayResponse is the format for the return object from our Macaulay function.
  */
-export interface MacaulayReturn {
+export interface MacaulayResult {
 	/** Position along the axis */
 	x: number[]
 	/** Shear force */
